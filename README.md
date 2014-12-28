@@ -1,8 +1,3 @@
-Log water consumption to Fitbit via voice on Google Glass
-
-
-
-
 # WaterLogg for Wear - update your Fitbit profile on your wrist via voice!
 ## A utility integrating Fitbit with Android Wear
 
