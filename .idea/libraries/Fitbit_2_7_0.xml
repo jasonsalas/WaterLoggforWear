@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Fitbit-2.7.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/mobile/libs/Fitbit-2.7.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
