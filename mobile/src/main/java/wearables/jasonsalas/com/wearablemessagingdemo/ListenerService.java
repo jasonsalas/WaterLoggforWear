@@ -18,7 +18,6 @@ public class ListenerService extends WearableListenerService {
 
     @Override
     public void onMessageReceived(MessageEvent messageEvent) {
-        super.onMessageReceived(messageEvent);
         if(messageEvent.getPath().equals(MESSAGE_PATH)) {
             updateFitbit(new String(messageEvent.getData()));
         }
