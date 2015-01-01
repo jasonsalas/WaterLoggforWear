@@ -1,5 +1,7 @@
 package wearables.jasonsalas.com.wearablemessagingdemo;
 
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.util.Log;
 
 import com.google.android.gms.wearable.MessageEvent;
@@ -66,6 +68,15 @@ public class ListenerService extends WearableListenerService {
                     Log.i(TAG, "Attempting to connect to Temboo...");
                     LogWater.LogWaterResultSet logWaterResults = logWaterChoreo.execute(logWaterInputs);
                     Log.i(TAG, logWaterResults.get_Response());
+					
+					 /* show a notification as a visual confirmation that the transaction went through */
+                    NotificationCompat.Builder builder = new NotificationCompat.Builder(ListenerService.this)
+                            .setSmallIcon(R.drawable.fitbitwhite)
+                            .setContentTitle("Fitbit has been updated!")
+                            .setContentText(String.format("You have logged %s fluid ounces of water in Fitbit!", volume));
+
+                    NotificationManagerCompat notificationManager = NotificationManagerCompat.from(ListenerService.this);
+                    notificationManager.notify(NOTIFICATION_ID, builder.build());
                 } catch (TembooException e) {
                     Log.i(TAG, "Error within runnable: " + e.getMessage());
                     e.printStackTrace();
