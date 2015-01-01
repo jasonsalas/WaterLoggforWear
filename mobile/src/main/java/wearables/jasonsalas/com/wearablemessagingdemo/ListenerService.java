@@ -17,6 +17,7 @@ public class ListenerService extends WearableListenerService {
 
     private static final String TAG = ListenerService.class.getSimpleName();
     private static final String MESSAGE_PATH = "/updatefitbit";
+	private static final int NOTIFICATION_ID = 001;
 
     @Override
     public void onMessageReceived(MessageEvent messageEvent) {
