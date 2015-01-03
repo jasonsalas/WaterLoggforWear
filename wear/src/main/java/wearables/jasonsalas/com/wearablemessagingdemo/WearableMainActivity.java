@@ -20,9 +20,10 @@ import java.util.concurrent.TimeUnit;
 
 public class WearableMainActivity extends Activity {
 
-    private static final String TAG = WearableMainActivity.class.getSimpleName();
+    private static final String TAG = "WaterLogg";
     private static final long CONNECTION_TIME_OUT_MS = 100;
     private static final int SPEECH_REQUEST_CODE = 8675309;
+    private static final int LIST_REQUEST_CODE = 007;
     private static final int CONFIRMATION_CODE = 5150;
     private static final String MESSAGE_PATH = "/updatefitbit";
 
@@ -60,10 +61,20 @@ public class WearableMainActivity extends Activity {
                 startActivityForResult(speechRecognizer, SPEECH_REQUEST_CODE);
             }
         });
+
+        findViewById(R.id.btn_list).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent listViewIntent = new Intent(WearableMainActivity.this, CommonWaterVolumesActivity.class);
+                startActivityForResult(listViewIntent, LIST_REQUEST_CODE);
+            }
+        });
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.i(TAG, String.format("REQUEST CODE: %s", requestCode));
+        Log.i(TAG, String.format("RESULT CODE: %s", resultCode));
         switch(requestCode) {
             case SPEECH_REQUEST_CODE:
                 if(resultCode == RESULT_OK) {
@@ -73,6 +84,14 @@ public class WearableMainActivity extends Activity {
 
                     // send the data to the handheld to post to Fitbit via Temboo
                     byte[] message = spokenText.getBytes();
+                    sendWaterVolume(message);
+                    displayConfirmation();
+                }
+                break;
+            case LIST_REQUEST_CODE:
+                if(resultCode == RESULT_OK) {
+                    String listValue = data.getStringExtra("selectedWaterVolume");
+                    byte[] message = listValue.getBytes();
                     sendWaterVolume(message);
                     displayConfirmation();
                 }
