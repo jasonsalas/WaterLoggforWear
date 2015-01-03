@@ -21,7 +21,7 @@ import java.util.concurrent.TimeUnit;
 public class WearableMainActivity extends Activity {
 
     private static final String TAG = "WaterLogg";
-    private static final long CONNECTION_TIME_OUT_MS = 100;
+    private static final long CONNECTION_TIMEOUT = 30;
     private static final int SPEECH_REQUEST_CODE = 8675309;
     private static final int LIST_REQUEST_CODE = 007;
     private static final int CONFIRMATION_CODE = 5150;
@@ -122,7 +122,7 @@ public class WearableMainActivity extends Activity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                client.blockingConnect(CONNECTION_TIME_OUT_MS, TimeUnit.MILLISECONDS);
+                client.blockingConnect(CONNECTION_TIMEOUT, TimeUnit.SECONDS);
 
                 NodeApi.GetConnectedNodesResult result = Wearable.NodeApi.getConnectedNodes(client).await();
                 List<Node> nodes = result.getNodes();
@@ -143,7 +143,7 @@ public class WearableMainActivity extends Activity {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    client.blockingConnect(CONNECTION_TIME_OUT_MS, TimeUnit.MILLISECONDS);
+                    client.blockingConnect(CONNECTION_TIMEOUT, TimeUnit.SECONDS);
                     Wearable.MessageApi.sendMessage(client, nodeId, MESSAGE_PATH, volume);
                     client.disconnect();
                 }
