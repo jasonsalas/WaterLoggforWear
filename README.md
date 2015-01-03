@@ -1,7 +1,7 @@
-# WaterLogg for Wear - update your Fitbit profile on your wrist via voice!
+# WaterLogg for Wear - update your Fitbit profile on your wrist...via voice or touch!
 ## A utility integrating Fitbit with Android Wear
 
-![WaterLogg for Wear lets you update your Fitbit profile with Android Wear using voice commands](https://dl.dropboxusercontent.com/u/12019700/glass-dev/tester-images/waterloggforwear-screencap.png)
+![WaterLogg for Wear lets you update your Fitbit profile with Android Wear using voice commands or a list of tappable values](https://dl.dropboxusercontent.com/u/12019700/glass-dev/tester-images/waterloggforwear-screencap.png)
 
 ### Genesis
 Fitbit is one of the most fun wearable computing devices around, and it's frequently used in hackathons as the base for neat ideas. This is an expansion of another wearble technology project I maintain, [WaterLogg for Google Glass](https://github.com/jasonsalas/WaterLoggforGlass).
@@ -19,6 +19,7 @@ This app uses the following libraries and APIs:
 - [Android SDK Message API](https://developer.android.com/training/wearables/data-layer/messages.html) to send messages from the wearable device to th connected handheld device, which then handles the update with the cloud
 - [Android's Speech Recognizer](http://developer.android.com/reference/android/speech/RecognizerIntent.html) which transcribes spoken free-form input into text...it handles numerics incredibly well!
 - [WearableListenerService](https://developer.android.com/reference/com/google/android/gms/wearable/WearableListenerService.html) an extended class allows for messages to be recieved and processed
+- [WearableListView](https://developer.android.com/training/wearables/ui/lists.html) extends the ability to scroll through pre-seeded values in a list and select them when using voice isn't possible (like in line at the bank, in court, in a crowd, at the library, etc.)
 - [GoogleApiClient](https://developer.android.com/reference/com/google/android/gms/common/api/GoogleApiClient.html) for integration with Google Play Services, needed for the cross-device communication
 - [Temboo's Fitbit library](https://www.temboo.com/library/Library/Fitbit/) to manage the [OAuth 1.0 flow and credentials](https://wiki.fitbit.com/display/API/OAuth+Authentication+in+the+Fitbit+API) and make the necessary HTTP requests to communicate with the [Fitbit API](https://www.fitbit.com/dev/dev). Once you generate the app keys and credentials on Temboo's site and grant access in a desktop browser, they can be copied over into your project in a single step without needing to use an embedded authorization URL in a WebView. However, you can still rebuild the OAuth flow by using [Temboo's libs](https://www.temboo.com/library/Library/Fitbit/OAuth/).
 
