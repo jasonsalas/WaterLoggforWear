@@ -1,7 +1,7 @@
 # WaterLogg for Wear - update your Fitbit profile on your wrist...via voice or touch!
 ## A utility integrating Fitbit with Android Wear
 
-![WaterLogg for Wear lets you update your Fitbit profile with Android Wear using voice commands or a list of tappable values](https://dl.dropboxusercontent.com/u/12019700/glass-dev/tester-images/waterloggforwear-screencap.png)
+![WaterLogg for Wear lets you update your Fitbit profile with Android Wear using voice commands or a list of tappable values](https://dl.dropboxusercontent.com/u/12019700/glass-dev/tester-images/waterloggforwear-screencap.png) ![WaterLogg for Wear notifies you when you've successfully updated your Fitbit profile](https://dl.dropboxusercontent.com/u/12019700/glass-dev/tester-images/waterloggforwear-confirm.png)
 
 ### Genesis
 Fitbit is one of the most fun wearable computing devices around, and it's frequently used in hackathons as the base for neat ideas. This is an expansion of another wearble technology project I maintain, [WaterLogg for Google Glass](https://github.com/jasonsalas/WaterLoggforGlass).
