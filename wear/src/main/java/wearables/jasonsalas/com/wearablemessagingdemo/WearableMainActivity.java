@@ -3,6 +3,7 @@ package wearables.jasonsalas.com.wearablemessagingdemo;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.speech.RecognizerIntent;
 import android.support.wearable.activity.ConfirmationActivity;
 import android.support.wearable.view.WatchViewStub;
@@ -97,8 +98,9 @@ public class WearableMainActivity extends Activity {
                 }
                 break;
             case CONFIRMATION_CODE:
-                Log.i(TAG, "closing activity...");
-                // finish();
+                // vibrate the watch once for a half-second
+                Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
+                vibrator.vibrate(500);
                 break;
         }
 
