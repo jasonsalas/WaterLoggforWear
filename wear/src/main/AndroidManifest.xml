@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="wearables.jasonsalas.com.wearablemessagingdemo" >
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="wearables.jasonsalas.com.wearablemessagingdemo" android:versionCode="1" android:versionName="1.0">
 
     <uses-feature android:name="android.hardware.type.watch" />
 	<uses-permission android:name="android.permission.VIBRATE" />
